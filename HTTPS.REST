@@ -1,0 +1,59 @@
+@baseUrl = http://172.16.21.214:3000
+
+### SETUP DB
+POST  {{baseUrl}}/setup
+
+###
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "rolland",
+  "password": "123456.",
+  "email": "rolland@gmail.com",
+  "role": "user"
+}
+
+###
+
+# Login User
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+###
+
+# Update User
+PUT {{baseUrl}}/auth/update
+Content-Type: application/json
+
+{
+  "userId": "2464",
+  "newUsername":"naufal123",
+  "newPassword": "naufal123",
+  "newEmail": "naufal@gmail.com",
+  "newRole": "admin"
+}
+
+### me
+GET {{baseUrl}}/auth/me
+Content-Type: application/json
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTA4OCwidXNlcm5hbWUiOiJkZWxpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMTI5MDA1NCwiZXhwIjoxNzMxMjkzNjU0fQ.73vkKEcoCip-629l3buz2WLLSQq3mkgJMIT_k-TFcS0
+
+### DELETE
+DELETE  {{baseUrl}}/auth/delete
+Content-Type: application/json
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzM5MCwidXNlcm5hbWUiOiJhcnJhZmkiLCJyb2xlIjoidXNlciIsImlhdCI6MTczMTA0NjU2NSwiZXhwIjoxNzMxMDUwMTY1fQ.cH7tlbJ9Ts5dV124vXvscgJJ8N5EWDQYy7mydYzr2TY
+
+{
+  "userId": 7551
+}
+
+### GET ALL
+GET {{baseUrl}}/auth
+Content-Type: application/json
+x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzU1MSwidXNlcm5hbWUiOiJkZWxpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMTA0Njc4OSwiZXhwIjoxNzMxMDUwMzg5fQ.3l6oeRfmKlL-yldZ3rBDMr3dcXCfhIIAcmLF8Us_teM

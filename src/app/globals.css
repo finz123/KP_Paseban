@@ -1,0 +1,216 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* styles/globals.css */
+
+/*{
+  border: solid 1px red;
+  border-color: red;
+}
+*/
+@layer utilities {
+  .scrollbar-hide {
+    /* For Firefox */
+    scrollbar-width: none;
+    /* For Internet Explorer, Edge */
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem; /* Kurangi ukuran font */
+}
+
+.bg-blue-custom {
+  background-color: #1976D2;
+}
+
+.text-blue-custom {
+  color: #1976D2;
+}
+
+.bg-red-custom {
+  background-color: #D32F2F;
+}
+
+.text-red-custom {
+  color: #D32F2F;
+}
+
+.number {
+  font-size: 3rem; /* Kurangi ukuran angka antrian */
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  animation: pulse 1.5s infinite;
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 1.2rem; /* Ukuran font lebih kecil untuk layar besar */
+  }
+
+  .number {
+    font-size: 4rem; /* Sesuaikan ukuran nomor antrian */
+  }
+
+  video {
+    height: 100px; /* Kurangi tinggi video */
+  }
+
+  .p-4 {
+    padding: 1rem; /* Kurangi padding di seluruh elemen */
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr); /* Grid 4 kolom */
+  }
+
+  .text-xl {
+    font-size: 1.2rem; /* Kurangi ukuran font */
+  }
+
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+
+  .text-3xl {
+    font-size: 2rem;
+  }
+
+  .number {
+    font-size: 4.5rem; /* Ukuran nomor lebih kecil */
+  }
+}
+
+@media (min-width: 3840px) {
+  body {
+    font-size: 1.5rem; /* Ukuran font besar untuk layar besar */
+  }
+
+  .number {
+    font-size: 6rem; /* Ukuran nomor besar untuk layar besar */
+  }
+
+  video {
+    height: 800px; /* Sesuaikan tinggi video */
+  }
+
+  .p-4 {
+    padding: 1.5rem; /* Kurangi padding */
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default grid 2 kolom */
+  gap: 0.5rem; /* Kurangi jarak antar kolom */
+}
+
+@media (min-width: 1920px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr); /* Untuk layout yang memiliki 4 kolom */
+  }
+  
+  .text-sm {
+    font-size: 0.9rem; /* Ukuran font kecil untuk item detail */
+  }
+
+  .p-4 {
+    padding: 1rem; /* Kurangi padding secara keseluruhan */
+  }
+
+  .text-xl {
+    font-size: 1.3rem; /* Kurangi ukuran teks besar */
+  }
+
+  .text-2xl {
+    font-size: 1.7rem;
+  }
+
+  .text-3xl {
+    font-size: 2.2rem;
+  }
+
+  .number {
+    font-size: 4rem; /* Sesuaikan ukuran nomor */
+  }
+
+  .scrollable-table {
+    max-height: 150px; /* Batasi tinggi tabel scrollable */
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 3840px) {
+  body {
+    font-size: 1.5rem;
+  }
+
+  .number {
+    font-size: 5rem;
+  }
+
+  video {
+    height: 1000px; /* Sesuaikan tinggi video pada layar besar */
+  }
+
+  .grid-cols-4 > div {
+    padding: 0.5rem; /* Sesuaikan padding antar elemen */
+  }
+}
+
+/* Style untuk QueueCall dan ServingQueue supaya tingginya sama dengan video */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.video-container,
+.queue-serving-container {
+  height: 100%;
+}
+
+@media (min-width: 1920px) {
+  .video-container,
+  .queue-serving-container {
+    height: 600px; /* Tinggi sama dengan video */
+  }
+}
+
+@media (min-width: 3840px) {
+  .video-container,
+  .queue-serving-container {
+    height: 800px; /* Tinggi sama dengan video di layar besar */
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Increase this number for a more prominent scaling effect */
+  }
+}
+
+.scale {
+  animation: scale 1.5s infinite;
+}
+body {
+  overflow-x: hidden;
+}
