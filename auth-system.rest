@@ -1,0 +1,53 @@
+# API Dokumentasi untuk Auth System
+
+### 1. Register User
+POST http://192.168.6.79:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "naufal",
+  "password": "naufal123",
+  "email": "naufal@gmail.com",
+  "role": "admin"
+}
+
+###
+
+### 2. Login User
+POST http://192.168.6.79:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+###
+
+### 3. Refresh Token
+POST http://localhost:3000/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken": ""
+}
+
+###
+
+### 4. Logout User
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwic2Vzc2lvbklkIjoiYTgzMTA0ZjEtYjljNi00OTQwLWJmMGUtMDY1ZGM2OGM0YWJmIiwiaWF0IjoxNzMzMzc4MzI1LCJleHAiOjE3MzMzNzgzODV9.QNzPPpNlRwJBK84Zls3ABf0lLYwWRI1C8KGHNZY_ZKU
+
+
+###
+
+### 5. Get User Profile
+GET http://localhost:3000/user/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InVzZXIiLCJzZXNzaW9uSWQiOiI3Y2U0YjkwYy04YjUxLTRkODYtOWQ1ZS02MzdkMjRjYjJmYmUiLCJpYXQiOjE3MzMzNjk2ODMsImV4cCI6MTczMzM3MDU4M30.Hox6psHgG7g81jeDzO_5_OKGLycJ8Cyvk7V_mJQk9ws
+
+###
+
+### 6. Get Login Activity (Admin Only)
+GET http://localhost:3000/admin/login-activity
+Authorization: Bearer your_access_token_admin_here

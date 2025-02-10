@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend_container_paseban
+    ports:
+      - "3100:3100"
+    environment:
+      - PORT=3100
+      - JWT_SECRET=465465asdfasfas
+      - REFRESH_TOKEN_SECRET=fefdsfwffd54s8a48ds4d
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=secret
+      - DB_NAME=KP_PASEBAN
+    depends_on:
+      - db
+    networks:
+      - paseban_network
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_container_paseban
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: KP_PASEBAN
+    volumes:
+      - mysql_data_paseban:/var/lib/mysql
+    networks:
+      - paseban_network
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_container_paseban
+    ports:
+      - "3300:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: secret
+    depends_on:
+      - db
+    networks:
+      - paseban_network
+    restart: always
+
+networks:
+  paseban_network:
+    driver: bridge
+
+volumes:
+  mysql_data_paseban:
